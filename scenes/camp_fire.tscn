@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtxo21f7rot68"]
+
+[ext_resource type="Texture2D" uid="uid://confi8rvtyhxb" path="res://assets/structure/campfire/Bonfire_02-Sheet.png" id="1_gvduw"]
+[ext_resource type="Texture2D" uid="uid://dhkcl0sxr44rp" path="res://assets/structure/campfire/Fire_01-Sheet.png" id="1_laf35"]
+[ext_resource type="Script" uid="uid://b4opebxxywrxj" path="res://scripts/camp_fire.gd" id="1_ttny0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ttny0"]
+radius = 24.6757
+
+[sub_resource type="Animation" id="Animation_laf35"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gvduw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5a6tu"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gvduw")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_54jok"]
+_data = {
+&"RESET": SubResource("Animation_laf35"),
+&"idle": SubResource("Animation_5a6tu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a6tu"]
+radius = 41.4193
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_laf35"]
+radius = 93.419
+
+[node name="CampFire" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_ttny0")
+
+[node name="FireSprite" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -8)
+texture = ExtResource("1_laf35")
+hframes = 4
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_gvduw")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ttny0")
+debug_color = Color(0.978527, 0, 0.395467, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_54jok")
+}
+autoplay = "idle"
+
+[node name="ReloadFuel" type="Area2D" parent="."]
+
+[node name="AreaSetFuel" type="CollisionShape2D" parent="ReloadFuel"]
+shape = SubResource("CircleShape2D_5a6tu")
+debug_color = Color(0.734949, 0.470054, 3.85046e-07, 0.42)
+
+[node name="SafeArea" type="Area2D" parent="."]
+
+[node name="AreaToSafe" type="CollisionShape2D" parent="SafeArea"]
+shape = SubResource("CircleShape2D_laf35")
+
+[node name="TimerDmg" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="TimerDmg" to="." method="_on_timer_dmg_timeout"]

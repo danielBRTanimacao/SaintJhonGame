@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddm64at6oi21v"]
+[gd_scene load_steps=4 format=3 uid="uid://ddm64at6oi21v"]
 
 [ext_resource type="PackedScene" uid="uid://b1vqi1ripmv2" path="res://scenes/player.tscn" id="1_nnsk1"]
-[ext_resource type="Texture2D" uid="uid://fj0xc1si501c" path="res://icon.svg" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://dtxo21f7rot68" path="res://scenes/camp_fire.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bxouxsg2ojx58" path="res://scenes/fuel.tscn" id="3_4wyf3"]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(613, 320)
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(157, 190)
-texture = ExtResource("2_rwgxs")
+[node name="CampFire" parent="." instance=ExtResource("2_rwgxs")]
+position = Vector2(322, 330)
+
+[node name="Fuel" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(841, 460)
