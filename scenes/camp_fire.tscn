@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtxo21f7rot68"]
+[gd_scene load_steps=11 format=3 uid="uid://dtxo21f7rot68"]
 
 [ext_resource type="Texture2D" uid="uid://confi8rvtyhxb" path="res://assets/structure/campfire/Bonfire_02-Sheet.png" id="1_gvduw"]
 [ext_resource type="Texture2D" uid="uid://dhkcl0sxr44rp" path="res://assets/structure/campfire/Fire_01-Sheet.png" id="1_laf35"]
 [ext_resource type="Script" uid="uid://b4opebxxywrxj" path="res://scripts/camp_fire.gd" id="1_ttny0"]
+[ext_resource type="Texture2D" uid="uid://t24ikasq2qt4" path="res://assets/light/light.webp" id="4_5a6tu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttny0"]
 radius = 24.6757
@@ -114,6 +115,7 @@ texture = ExtResource("1_gvduw")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ttny0")
 debug_color = Color(0.978527, 0, 0.395467, 0.42)
 
@@ -124,6 +126,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="ReloadFuel" type="Area2D" parent="."]
+visible = false
 
 [node name="AreaSetFuel" type="CollisionShape2D" parent="ReloadFuel"]
 shape = SubResource("CircleShape2D_5a6tu")
@@ -132,7 +135,13 @@ debug_color = Color(0.734949, 0.470054, 3.85046e-07, 0.42)
 [node name="SafeArea" type="Area2D" parent="."]
 
 [node name="AreaToSafe" type="CollisionShape2D" parent="SafeArea"]
+visible = false
 shape = SubResource("CircleShape2D_laf35")
+
+[node name="PointLight2D" type="PointLight2D" parent="SafeArea"]
+color = Color(0.971392, 0.817918, 0.712688, 1)
+texture = ExtResource("4_5a6tu")
+height = 5.0
 
 [node name="TimerDmg" type="Timer" parent="."]
 autostart = true
