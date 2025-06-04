@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtxo21f7rot68"]
+[gd_scene load_steps=12 format=3 uid="uid://dtxo21f7rot68"]
 
 [ext_resource type="Texture2D" uid="uid://confi8rvtyhxb" path="res://assets/structure/campfire/Bonfire_02-Sheet.png" id="1_gvduw"]
 [ext_resource type="Texture2D" uid="uid://dhkcl0sxr44rp" path="res://assets/structure/campfire/Fire_01-Sheet.png" id="1_laf35"]
 [ext_resource type="Script" uid="uid://b4opebxxywrxj" path="res://scripts/camp_fire.gd" id="1_ttny0"]
 [ext_resource type="Texture2D" uid="uid://t24ikasq2qt4" path="res://assets/light/light.webp" id="4_5a6tu"]
+[ext_resource type="Texture2D" uid="uid://by08bwhcnkiju" path="res://assets/actions/button_action.png" id="4_54jok"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttny0"]
 radius = 24.6757
@@ -124,6 +125,18 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="Control" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(0, -35)
+texture = ExtResource("4_54jok")
+
 [node name="ReloadFuel" type="Area2D" parent="."]
 
 [node name="AreaSetFuel" type="CollisionShape2D" parent="ReloadFuel"]
@@ -144,4 +157,5 @@ height = 5.0
 autostart = true
 
 [connection signal="body_entered" from="SafeArea" to="." method="_on_safe_area_body_entered"]
+[connection signal="body_exited" from="SafeArea" to="." method="_on_safe_area_body_exited"]
 [connection signal="timeout" from="TimerDmg" to="." method="_on_timer_dmg_timeout"]
