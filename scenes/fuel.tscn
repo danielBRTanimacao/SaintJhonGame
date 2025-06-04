@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxouxsg2ojx58"]
 
 [ext_resource type="Texture2D" uid="uid://cwdqfb0c88mnb" path="res://assets/fuelSprite/madera.png" id="1_h2npa"]
-[ext_resource type="Texture2D" uid="uid://t24ikasq2qt4" path="res://assets/light/light.webp" id="2_vltxq"]
+[ext_resource type="Texture2D" uid="uid://by08bwhcnkiju" path="res://assets/actions/button_action.png" id="2_vltxq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2npa"]
 radius = 5.37484
@@ -10,7 +10,6 @@ radius = 5.37484
 radius = 16.9967
 
 [node name="Fuel" type="StaticBody2D"]
-scale = Vector2(1.7, 1.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h2npa")
@@ -23,7 +22,12 @@ texture = ExtResource("1_h2npa")
 [node name="Collision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vltxq")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.802287, 0.572157, 0.201919, 1)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(0, -19)
 texture = ExtResource("2_vltxq")
-texture_scale = 0.1

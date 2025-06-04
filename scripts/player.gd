@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var islived: bool = true
 @export var isSafeArea: bool = true
 @export var inventory: Array = []
-@export var playerSpeed: int = 400
+@export var playerSpeed: int = 200
 
 var final_direction = "idle-down"
 
@@ -30,6 +30,6 @@ func player_movement() -> void:
 	if velocity.x == 0 and velocity.y == 0:
 		$AnimationPlayer.play(final_direction)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	player_movement()
 	move_and_slide()

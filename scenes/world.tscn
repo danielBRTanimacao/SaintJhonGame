@@ -290,7 +290,7 @@ color = Color(0.43754, 0.425032, 0.416691, 1)
 position = Vector2(592, 353)
 
 [node name="Fuel" parent="." instance=ExtResource("3_4wyf3")]
-position = Vector2(123, 356)
+position = Vector2(444, 350)
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(696, 327)

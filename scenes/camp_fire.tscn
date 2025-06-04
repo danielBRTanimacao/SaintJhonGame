@@ -101,7 +101,7 @@ radius = 41.4193
 radius = 93.419
 
 [node name="CampFire" type="StaticBody2D"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_ttny0")
 
 [node name="FireSprite" type="Sprite2D" parent="."]
@@ -115,7 +115,6 @@ texture = ExtResource("1_gvduw")
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_ttny0")
 debug_color = Color(0.978527, 0, 0.395467, 0.42)
 
@@ -126,7 +125,6 @@ libraries = {
 autoplay = "idle"
 
 [node name="ReloadFuel" type="Area2D" parent="."]
-visible = false
 
 [node name="AreaSetFuel" type="CollisionShape2D" parent="ReloadFuel"]
 shape = SubResource("CircleShape2D_5a6tu")
@@ -135,7 +133,6 @@ debug_color = Color(0.734949, 0.470054, 3.85046e-07, 0.42)
 [node name="SafeArea" type="Area2D" parent="."]
 
 [node name="AreaToSafe" type="CollisionShape2D" parent="SafeArea"]
-visible = false
 shape = SubResource("CircleShape2D_laf35")
 
 [node name="PointLight2D" type="PointLight2D" parent="SafeArea"]
@@ -146,4 +143,5 @@ height = 5.0
 [node name="TimerDmg" type="Timer" parent="."]
 autostart = true
 
+[connection signal="body_entered" from="SafeArea" to="." method="_on_safe_area_body_entered"]
 [connection signal="timeout" from="TimerDmg" to="." method="_on_timer_dmg_timeout"]
