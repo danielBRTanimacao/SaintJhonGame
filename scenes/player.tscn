@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dxg42lm7ds3ci" path="res://assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="8_smehm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(14, 56)
+size = Vector2(14, 59)
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -459,7 +459,7 @@ flip_h = true
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]

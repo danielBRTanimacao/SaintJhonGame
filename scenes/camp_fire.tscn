@@ -99,7 +99,7 @@ _data = {
 radius = 41.4193
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_laf35"]
-radius = 93.419
+radius = 107.143
 
 [node name="CampFire" type="StaticBody2D"]
 scale = Vector2(0.7, 0.7)
