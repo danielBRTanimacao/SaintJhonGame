@@ -1,4 +1,4 @@
-extends TileMapLayer
+extends Node2D
 
 @onready var labelGlobalTimer = $Player/CanvasLayer/MarginContainer/CountDownText
 @onready var timerGlobal = $WordTimer
