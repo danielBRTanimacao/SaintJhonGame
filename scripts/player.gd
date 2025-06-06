@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var islived: bool = true
 @export var isSafeArea: bool = true
-@export var playerSpeed: int = 200
+@export var playerSpeed: int = 200 
 
 var final_direction = "idle-down"
 
