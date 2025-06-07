@@ -1,3 +1,4 @@
 extends CharacterBody2D
 
-@export var playerSpeed: int = 220
+#Sempre usar "Snake Case" como padrão.
+@export var monster_speed: int = 220

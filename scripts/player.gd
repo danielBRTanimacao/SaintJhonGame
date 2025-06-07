@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
-@export var islived: bool = true
-@export var isSafeArea: bool = true
-@export var playerSpeed: int = 200 
+#==========================================================================================================================
+#WARN1NG - Mudança no tempo da animação, para voltar a original basta ir em: AnimationPlayer ---> Speed Scale ---> "0.5".
+#WARN1NG - Mudança no Z-index do novo "World", para alterar basta ir em: World ---> Structures ---> Ordering ---> Z-Index.
+#==========================================================================================================================
+ 
+#Mudança nos nomes das variáveis para seguir o padrão "Snake Case".
+@export var is_alive: bool = true
+@export var is_safe: bool = Global.player_is_safe #Sincroniza o estado de proteção do player com script Global.
+@export var player_speed: int = 200 
 
 var final_direction = "idle-down"
 
@@ -24,7 +30,7 @@ func player_movement() -> void:
 		final_direction = "idle-down"
 		$AnimationPlayer.play("run-down")
 	
-	velocity = input_direction * playerSpeed
+	velocity = input_direction * player_speed
 	
 	if velocity.x == 0 and velocity.y == 0:
 		$AnimationPlayer.play(final_direction)
