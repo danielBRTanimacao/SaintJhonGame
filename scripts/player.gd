@@ -5,9 +5,8 @@ extends CharacterBody2D
 #WARN1NG - Mudança no Z-index do novo "World", para alterar basta ir em: World ---> Structures ---> Ordering ---> Z-Index.
 #==========================================================================================================================
  
-#Mudança nos nomes das variáveis para seguir o padrão "Snake Case".
 @export var is_alive: bool = true
-@export var is_safe: bool = Global.player_is_safe #Sincroniza o estado de proteção do player com script Global.
+@export var is_safe: bool = Global.player_is_safe
 @export var player_speed: int = 200 
 
 var final_direction = "idle-down"
