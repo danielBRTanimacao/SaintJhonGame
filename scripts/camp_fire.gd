@@ -72,13 +72,12 @@ func camp_fire_damage() -> void:
 func update_light() -> void:
 	var current_light_ratio: float = 0.0
 	if camp_damage > 0:
-		current_light_ratio = float(fuel_capacity) / float(camp_damage * 300)
+		current_light_ratio = float(fuel_capacity) / float(camp_damage * (300 / camp_damage))
 	
 	current_light_ratio = max(0.0, current_light_ratio)
 	
 	if $"SafeArea/PointLight2D":
 		$"SafeArea/PointLight2D".texture_scale = 1.0 * current_light_ratio
-	print("Current texture_scale:", $"SafeArea/PointLight2D".texture_scale)
 
 func _on_timer_dmg_timeout() -> void:
 	camp_fire_damage()
