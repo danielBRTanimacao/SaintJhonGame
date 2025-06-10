@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://do4rykh24opl0" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://duttgdsaselw1" path="res://assets/monsterAssets/MonsterIdle_Down.png" id="1_uwnm8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cbnp"]
-size = Vector2(20, 33)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cbnp"]
+radius = 4.16667
+height = 29.0
 
 [sub_resource type="Animation" id="Animation_c47ug"]
 length = 0.001
@@ -77,10 +78,13 @@ hframes = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_1cbnp")
+shape = SubResource("CapsuleShape2D_1cbnp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_c47ug")
 }
 autoplay = "idle-down"
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1

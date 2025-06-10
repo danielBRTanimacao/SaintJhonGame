@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dkvhv1fnvmrx5" path="res://assets/playerAssets/Run_Base/Run_Side-Sheet.png" id="7_ur7pv"]
 [ext_resource type="FontFile" uid="uid://dxg42lm7ds3ci" path="res://assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="8_smehm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(22, 57.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
+radius = 12.0
+height = 58.5
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -463,8 +464,8 @@ flip_h = true
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 2.75)
-shape = SubResource("RectangleShape2D_g2els")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.3, 2.3)

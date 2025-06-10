@@ -1,15 +1,13 @@
 extends CharacterBody2D
-
-#==========================================================================================================================
-#WARN1NG - Mudança no tempo da animação, para voltar a original basta ir em: AnimationPlayer ---> Speed Scale ---> "0.5".
-#WARN1NG - Mudança no Z-index do novo "World", para alterar basta ir em: World ---> Structures ---> Ordering ---> Z-Index.
-#==========================================================================================================================
  
 @export var is_alive: bool = true
 @export var is_safe: bool = Global.player_is_safe
 @export var player_speed: int = 200 
 
 var final_direction = "idle-down"
+
+func _process(_delta: float) -> void:
+	Global.player_target = get_node("CollisionShape2D").global_transform.origin
 
 func player_movement() -> void:
 	var input_direction = Input.get_vector(
