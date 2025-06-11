@@ -15,3 +15,7 @@ func time_left_to_live() -> Array:
 func _process(_delta: float) -> void:
 	labelGlobalTimer.text = "%02d:%02d" % time_left_to_live()
 	Global.time_left = timerGlobal.time_left
+
+
+func _on_word_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/end_game.tscn")

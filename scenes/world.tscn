@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bk7qpx7y1clil"]
+[gd_scene load_steps=41 format=4 uid="uid://bk7qpx7y1clil"]
 
 [ext_resource type="Texture2D" uid="uid://0vlur0q3cpwe" path="res://assets/tilesets/floorTiles/Floors_Tiles.png" id="1_71j4m"]
 [ext_resource type="Script" uid="uid://dp4mspnw0nxea" path="res://scripts/world.gd" id="1_k0juu"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://q13vkfgwyvqu" path="res://assets/tilesets/house/house.png" id="8_o8fc1"]
 [ext_resource type="Texture2D" uid="uid://l0h61hjis22w" path="res://assets/tilesets/house/mecComplete.png" id="9_xo05s"]
 [ext_resource type="Texture2D" uid="uid://dw8v58oklg672" path="res://assets/structure/enviroment/caxa.png" id="10_dss4m"]
+[ext_resource type="Texture2D" uid="uid://badd8mc26r6lh" path="res://assets/entities/quacky.png" id="11_7t5mc"]
 [ext_resource type="Texture2D" uid="uid://dl66gumcb7l3" path="res://assets/structure/enviroment/school.png" id="11_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://cxr5h82122ryk" path="res://scenes/monster.tscn" id="13_jhx03"]
 
@@ -1783,6 +1784,9 @@ size = Vector2(123.333, 88)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t5mc"]
 size = Vector2(473, 21)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lakw3"]
+radius = 4.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_udxuc"]
 texture = ExtResource("3_i7141")
 2:0/0 = 0
@@ -2952,6 +2956,16 @@ rotation = 1.5708
 position = Vector2(57, 0.5)
 shape = SubResource("RectangleShape2D_7t5mc")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="TerrainNavigation/Structures"]
+position = Vector2(-530, 123)
+
+[node name="Sprite2D" type="Sprite2D" parent="TerrainNavigation/Structures/StaticBody2D"]
+texture = ExtResource("11_7t5mc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainNavigation/Structures/StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_lakw3")
+
 [node name="Woods" type="Node2D" parent="TerrainNavigation"]
 
 [node name="Fuel" parent="TerrainNavigation/Woods" instance=ExtResource("3_4wyf3")]
@@ -2978,6 +2992,7 @@ tile_set = SubResource("TileSet_26xuy")
 environment = SubResource("Environment_hiqwa")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Environment"]
+visible = false
 color = Color(0.0997784, 0.0953261, 0.092356, 1)
 
 [node name="WordTimer" type="Timer" parent="."]
@@ -2989,3 +3004,5 @@ position = Vector2(-100, 376)
 
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(664, 348)
+
+[connection signal="timeout" from="WordTimer" to="." method="_on_word_timer_timeout"]

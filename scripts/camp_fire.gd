@@ -16,7 +16,11 @@ func _process(_delta: float) -> void:
 			Global.inventory.clear()
 			
 			$Control/Sprite2D.visible = false
-			
+	if fuel_capacity <= 0:
+		$Sound.stream_paused = true
+	else:
+		$Sound.stream_paused = false
+	
 	verify_capacity()
 	update_animation()
 	update_light()
