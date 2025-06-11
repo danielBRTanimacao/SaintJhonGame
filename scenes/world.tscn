@@ -2992,7 +2992,6 @@ tile_set = SubResource("TileSet_26xuy")
 environment = SubResource("Environment_hiqwa")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Environment"]
-visible = false
 color = Color(0.0997784, 0.0953261, 0.092356, 1)
 
 [node name="WordTimer" type="Timer" parent="."]
