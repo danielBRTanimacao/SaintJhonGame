@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var monster_speed: int = 3
+@export var monster_speed: int = 5
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent
 
 func _physics_process(delta: float) -> void:
@@ -10,5 +10,5 @@ func _physics_process(delta: float) -> void:
 	direction = navigation_agent.get_next_path_position() - global_position
 	direction.normalized()
 	
-	velocity = velocity.lerp(direction * monster_speed, delta)
+	velocity = velocity.lerp(direction * monster_speed, 7 * delta)
 	move_and_slide()

@@ -1,20 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxouxsg2ojx58"]
+[gd_scene load_steps=5 format=3 uid="uid://bxouxsg2ojx58"]
 
 [ext_resource type="Texture2D" uid="uid://cwdqfb0c88mnb" path="res://assets/fuelSprite/madera.png" id="1_h2npa"]
 [ext_resource type="Script" uid="uid://caajpk6ajhawj" path="res://scripts/fuel.gd" id="1_vf86o"]
 [ext_resource type="Texture2D" uid="uid://by08bwhcnkiju" path="res://assets/actions/button_action.png" id="2_vltxq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_h2npa"]
-radius = 5.37484
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vltxq"]
 radius = 16.9967
 
 [node name="Fuel" type="StaticBody2D"]
 script = ExtResource("1_vf86o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_h2npa")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_h2npa")

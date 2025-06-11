@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 12.0
-height = 58.5
+height = 36.0
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -464,7 +464,7 @@ flip_h = true
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 12)
 shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
