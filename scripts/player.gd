@@ -1,6 +1,5 @@
 extends CharacterBody2D
  
-@export var is_alive: bool = true
 @export var is_safe: bool = Global.player_is_safe
 @export var player_speed: int = 200 
 
@@ -8,6 +7,9 @@ var final_direction = "idle-down"
 
 func _process(_delta: float) -> void:
 	Global.player_target = get_node("CollisionShape2D").global_transform.origin
+	if !Global.is_alive:
+		get_tree().change_scene_to_file("res://scenes/play_ui.tscn")
+		Global.is_alive = true
 
 func player_movement() -> void:
 	var input_direction = Input.get_vector(

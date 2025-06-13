@@ -3004,4 +3004,7 @@ position = Vector2(-100, 376)
 [node name="Player" parent="." instance=ExtResource("1_nnsk1")]
 position = Vector2(664, 348)
 
+[node name="Teleport" type="Node2D" parent="."]
+position = Vector2(-485, -702)
+
 [connection signal="timeout" from="WordTimer" to="." method="_on_word_timer_timeout"]

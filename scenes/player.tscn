@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1vqi1ripmv2"]
+[gd_scene load_steps=21 format=3 uid="uid://b1vqi1ripmv2"]
 
 [ext_resource type="Script" uid="uid://dk2n48iannol2" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://ks75k68iyvht" path="res://assets/playerAssets/Idle_Base/Idle_Down-Sheet.png" id="2_g2els"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bb05binmi6k56" path="res://assets/playerAssets/Run_Base/Run_Up-Sheet.png" id="6_smehm"]
 [ext_resource type="Texture2D" uid="uid://dkvhv1fnvmrx5" path="res://assets/playerAssets/Run_Base/Run_Side-Sheet.png" id="7_ur7pv"]
 [ext_resource type="FontFile" uid="uid://dxg42lm7ds3ci" path="res://assets/fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" id="8_smehm"]
+[ext_resource type="Texture2D" uid="uid://t24ikasq2qt4" path="res://assets/light/light.webp" id="9_ur7pv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
 radius = 12.0
@@ -489,3 +490,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("8_smehm")
 theme_override_font_sizes/font_size = 22
 text = "00:00"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.899267, 0.898023, 0, 1)
+energy = 0.5
+texture = ExtResource("9_ur7pv")

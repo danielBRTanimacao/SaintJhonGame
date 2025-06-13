@@ -90,6 +90,8 @@ func _on_timer_dmg_timeout() -> void:
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.player_is_safe = true
+	if body.is_in_group("Monster"):
+		body.position = Vector2(-485, -700)
 
 func _on_safe_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):

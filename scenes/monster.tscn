@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxr5h82122ryk"]
+[gd_scene load_steps=9 format=3 uid="uid://cxr5h82122ryk"]
 
 [ext_resource type="Script" uid="uid://do4rykh24opl0" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://duttgdsaselw1" path="res://assets/monsterAssets/MonsterIdle_Down.png" id="1_uwnm8"]
+[ext_resource type="Texture2D" uid="uid://t24ikasq2qt4" path="res://assets/light/light.webp" id="3_c47ug"]
 
 [sub_resource type="Animation" id="Animation_c47ug"]
 length = 0.001
@@ -66,8 +67,13 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c47ug"]
 
-[node name="Monster" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cbnp"]
+radius = 7.5
+height = 21.6667
+
+[node name="Monster" type="CharacterBody2D" groups=["Monster"]]
 scale = Vector2(1.2, 1.2)
+collision_mask = 2
 script = ExtResource("1_1cbnp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -86,3 +92,17 @@ autoplay = "idle-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_c47ug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.66667)
+shape = SubResource("CapsuleShape2D_1cbnp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2.38419e-07, -4.16667)
+scale = Vector2(0.825521, 0.760417)
+color = Color(1, 0, 0, 1)
+energy = 0.3
+texture = ExtResource("3_c47ug")
+texture_scale = 0.1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
