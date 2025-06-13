@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var monster_speed: int = 6
+@export var monster_speed: int = 5
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent
 
 func _physics_process(delta: float) -> void:
